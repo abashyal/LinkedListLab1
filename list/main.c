@@ -48,14 +48,14 @@ int main() {
   }
   
 
-  // printf("The list length is %d\n", list_length(mylist));
+  printf("The list length is %d\n", list_length(mylist));
 
-  // list_add_to_back(mylist, 39);
-  // list_print(mylist);
-  // list_add_to_back(mylist, 18);
-  // list_add_to_back(mylist, 42);
-  // list_add_to_back(mylist, 190);
-  // list_print(mylist);
+  list_add_to_back(mylist, 39);
+  list_print(mylist);
+  list_add_to_back(mylist, 18);
+  list_add_to_back(mylist, 42);
+  list_add_to_back(mylist, 190);
+  list_print(mylist);
   // list_free(mylist);
   // list_print(mylist);
 
