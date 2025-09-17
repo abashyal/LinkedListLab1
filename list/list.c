@@ -77,3 +77,19 @@ int list_length(list_t *l) {
   }
   return count;
 }
+void list_add_to_back(list_t *l, elem value) {
+  if (l == NULL) return;
+  
+  node_t *new_node = getNode(value);
+  
+  if (l->head == NULL) {
+    l->head = new_node;
+    return;
+  }
+  
+  node_t *current = l->head;
+  while (current->next != NULL) {
+    current = current->next;
+  }
+  current->next = new_node;
+}

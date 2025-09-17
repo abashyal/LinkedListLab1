@@ -56,16 +56,16 @@ int main() {
   list_add_to_back(mylist, 42);
   list_add_to_back(mylist, 190);
   list_print(mylist);
-  // list_free(mylist);
-  // list_print(mylist);
+  list_free(mylist);
+  list_print(mylist);
 
-  // list_add_to_front(mylist, 81);
-  // list_add_to_back(mylist, 4);
-  // list_add_to_front(mylist, 308);
-  // list_add_to_back(mylist, 70);
-  // list_add_to_front(mylist, 290);
-  // list_print(mylist);
-  // printf("The list length is %d\n", list_length(mylist));
+  list_add_to_front(mylist, 81);
+  list_add_to_back(mylist, 4);
+  list_add_to_front(mylist, 308);
+  list_add_to_back(mylist, 70);
+  list_add_to_front(mylist, 290);
+  list_print(mylist);
+  printf("The list length is %d\n", list_length(mylist));
   
   // list_add_at_index(mylist, 21, 1);
   // list_add_at_index(mylist, 65, 0);
