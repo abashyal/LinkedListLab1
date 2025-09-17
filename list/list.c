@@ -146,3 +146,39 @@ elem list_remove_from_front(list_t *l) {
   free(temp);
   return value;
 }
+elem list_remove_at_index(list_t *l, int index) { 
+  if (l == NULL || l->head == NULL || index < 0) return -1;
+  
+  if (index == 0) {
+    return list_remove_from_front(l);
+  }
+  
+  node_t *current = l->head;
+  
+  // Navigate to the position before the one we want to remove
+  for (int i = 0; i < index - 1 && current != NULL; i++) {
+    current = current->next;
+  }
+  
+  // If current is NULL or the next node doesn't exist, index is out of bounds
+  if (current == NULL || current->next == NULL) {
+    return -1;
+  }
+  node_t *node_to_remove = current->next;
+  elem value = node_to_remove->value;
+  current->next = node_to_remove->next;
+  free(node_to_remove);
+  return value;
+}
+bool list_is_in(list_t *l, elem value) { 
+  if (l == NULL || l->head == NULL) return false;
+  
+  node_t *current = l->head;
+  while (current != NULL) {
+    if (current->value == value) {
+      return true;
+    }
+    current = current->next;
+  }
+  return false;
+}

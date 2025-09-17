@@ -81,7 +81,7 @@ int main() {
   list_remove_at_index(mylist, 3);
   list_print(mylist);
 
-  // printf("Is %d in the list?: %d\n", 21, list_is_in(mylist, 21));
+  printf("Is %d in the list?: %d\n", 21, list_is_in(mylist, 21));
   printf("Value at %d in the list?: %d\n", 3, list_get_elem_at(mylist, 3));
   printf("Value at %d in the list?: %d\n", 5, list_get_elem_at(mylist, 5));
   printf("Value at %d in the list?: %d\n", 0, list_get_elem_at(mylist, 0));
