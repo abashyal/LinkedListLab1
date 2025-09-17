@@ -93,3 +93,24 @@ void list_add_to_back(list_t *l, elem value) {
   }
   current->next = new_node;
 }
+void list_add_to_front(list_t *l, elem value) {
+  if (l == NULL) return;
+  
+  node_t *cur_node = (node_t *) getNode(value);
+
+  /* Insert to front */
+  node_t *head = l->head;  // get head of list
+
+  cur_node->next = head;
+  l->head = cur_node;
+}
+
+node_t * getNode(elem value) {
+  node_t *mynode;
+
+  mynode = (node_t *) malloc(sizeof(node_t));
+  mynode->value = value;
+  mynode->next = NULL;
+
+  return mynode;
+}

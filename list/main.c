@@ -67,12 +67,12 @@ int main() {
   list_print(mylist);
   printf("The list length is %d\n", list_length(mylist));
   
-  // list_add_at_index(mylist, 21, 1);
-  // list_add_at_index(mylist, 65, 0);
-  // list_add_at_index(mylist, 10, 8);
-  // list_print(mylist);
-  // list_add_at_index(mylist, 10, 7);
-  // list_print(mylist);
+  list_add_at_index(mylist, 21, 1);
+  list_add_at_index(mylist, 65, 0);
+  list_add_at_index(mylist, 10, 8);
+  list_print(mylist);
+  list_add_at_index(mylist, 10, 7);
+  list_print(mylist);
 
   // list_remove_from_back(mylist);
   // list_print(mylist);
