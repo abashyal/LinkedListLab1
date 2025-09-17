@@ -57,6 +57,7 @@ int main() {
   list_add_to_back(mylist, 190);
   list_print(mylist);
   list_free(mylist);
+    mylist = list_alloc();
   list_print(mylist);
 
   list_add_to_front(mylist, 81);
@@ -95,15 +96,16 @@ int main() {
   printf("Index of %d?: %d\n", 90, list_get_index_of(mylist, 90));
   // printf("Index of %d?: %d\n", 81, list_get_index_of(mylist, 81));
   
-  // list_free(mylist);
+  list_free(mylist);
+    mylist = list_alloc();
+  list_add_at_index(mylist, -1, -1);
+  list_print(mylist);
   // list_add_at_index(mylist, -1, -1);
   // list_print(mylist);
-  // list_add_at_index(mylist, -1, -1);
-  // list_print(mylist);
-  // list_add_at_index(mylist, 10, 0);
-  // list_print(mylist);
-  // list_add_at_index(mylist, 20, 1);
-  // list_print(mylist);
+  list_add_at_index(mylist, 10, 0);
+  list_print(mylist);
+  list_add_at_index(mylist, 20, 1);
+  list_print(mylist);
   // list_free(mylist);
   // printf("The list length is %d\n", list_length(mylist));
   // list_print(mylist);

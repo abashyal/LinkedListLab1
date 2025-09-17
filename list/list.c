@@ -114,6 +114,31 @@ node_t * getNode(elem value) {
 
   return mynode;
 }
+void list_add_at_index(list_t *l, elem value, int index) {
+  if (l == NULL || index < 1) return;  // Changed from index < 0 to index < 1
+  
+  if (index == 1) {  // Changed from index == 0 to index == 1
+    list_add_to_front(l, value);
+    return;
+  }
+  
+  node_t *new_node = getNode(value);
+  node_t *current = l->head;
+  
+  // Navigate to the position before where we want to insert
+  for (int i = 1; i < index - 1 && current != NULL; i++) {  // Changed from i = 0 to i = 1
+    current = current->next;
+  }
+  
+  // If current is NULL, index is out of bounds
+  if (current == NULL) {
+    free(new_node);
+    return;
+  }
+  
+  new_node->next = current->next;
+  current->next = new_node;
+}
 elem list_remove_from_back(list_t *l) { 
   if (l == NULL || l->head == NULL) return -1;
   
@@ -147,16 +172,16 @@ elem list_remove_from_front(list_t *l) {
   return value;
 }
 elem list_remove_at_index(list_t *l, int index) { 
-  if (l == NULL || l->head == NULL || index < 0) return -1;
+  if (l == NULL || l->head == NULL || index < 1) return -1;  // Changed from index < 0 to index < 1
   
-  if (index == 0) {
+  if (index == 1) {  // Changed from index == 0 to index == 1
     return list_remove_from_front(l);
   }
   
   node_t *current = l->head;
   
   // Navigate to the position before the one we want to remove
-  for (int i = 0; i < index - 1 && current != NULL; i++) {
+  for (int i = 1; i < index - 1 && current != NULL; i++) {  // Changed from i = 0 to i = 1
     current = current->next;
   }
   
@@ -164,11 +189,38 @@ elem list_remove_at_index(list_t *l, int index) {
   if (current == NULL || current->next == NULL) {
     return -1;
   }
+  
   node_t *node_to_remove = current->next;
   elem value = node_to_remove->value;
   current->next = node_to_remove->next;
   free(node_to_remove);
   return value;
+}
+elem list_get_elem_at(list_t *l, int index) { 
+  if (l == NULL || l->head == NULL || index < 1) return -1;  // Changed from index < 0 to index < 1
+  
+  node_t *current = l->head;
+  for (int i = 1; i < index && current != NULL; i++) {  // Changed from i = 0 to i = 1
+    current = current->next;
+  }
+  
+  if (current == NULL) return -1;
+  return current->value;
+}
+int list_get_index_of(list_t *l, elem value) { 
+  if (l == NULL || l->head == NULL) return -1;
+  
+  node_t *current = l->head;
+  int index = 1;  // Changed from 0 to 1
+  
+  while (current != NULL) {
+    if (current->value == value) {
+      return index;
+    }
+    current = current->next;
+    index++;
+  }
+  return -1;
 }
 bool list_is_in(list_t *l, elem value) { 
   if (l == NULL || l->head == NULL) return false;
