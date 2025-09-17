@@ -74,12 +74,12 @@ int main() {
   list_add_at_index(mylist, 10, 7);
   list_print(mylist);
 
-  // list_remove_from_back(mylist);
-  // list_print(mylist);
-  // list_remove_from_front(mylist);
-  // list_print(mylist);
-  // list_remove_at_index(mylist, 3);
-  // list_print(mylist);
+  list_remove_from_back(mylist);
+  list_print(mylist);
+  list_remove_from_front(mylist);
+  list_print(mylist);
+  list_remove_at_index(mylist, 3);
+  list_print(mylist);
 
   // printf("Is %d in the list?: %d\n", 21, list_is_in(mylist, 21));
   printf("Value at %d in the list?: %d\n", 3, list_get_elem_at(mylist, 3));

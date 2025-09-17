@@ -114,3 +114,35 @@ node_t * getNode(elem value) {
 
   return mynode;
 }
+elem list_remove_from_back(list_t *l) { 
+  if (l == NULL || l->head == NULL) return -1;
+  
+  // If only one element
+  if (l->head->next == NULL) {
+    elem value = l->head->value;
+    free(l->head);
+    l->head = NULL;
+    return value;
+  }
+  
+  // Find second to last node
+  node_t *current = l->head;
+  while (current->next->next != NULL) {
+    current = current->next;
+  }
+  
+  elem value = current->next->value;
+  free(current->next);
+  current->next = NULL;
+  return value;
+}
+
+elem list_remove_from_front(list_t *l) { 
+  if (l == NULL || l->head == NULL) return -1;
+  
+  node_t *temp = l->head;
+  elem value = temp->value;
+  l->head = l->head->next;
+  free(temp);
+  return value;
+}
