@@ -99,7 +99,7 @@ void list_add_to_front(list_t *l, elem value) {
   node_t *cur_node = (node_t *) getNode(value);
 
   /* Insert to front */
-  node_t *head = l->head;  // get head of list
+  node_t *head = l->head;  
 
   cur_node->next = head;
   l->head = cur_node;
@@ -115,9 +115,9 @@ node_t * getNode(elem value) {
   return mynode;
 }
 void list_add_at_index(list_t *l, elem value, int index) {
-  if (l == NULL || index < 1) return;  // Changed from index < 0 to index < 1
+  if (l == NULL || index < 1) return;  
   
-  if (index == 1) {  // Changed from index == 0 to index == 1
+  if (index == 1) {  
     list_add_to_front(l, value);
     return;
   }
@@ -172,16 +172,16 @@ elem list_remove_from_front(list_t *l) {
   return value;
 }
 elem list_remove_at_index(list_t *l, int index) { 
-  if (l == NULL || l->head == NULL || index < 1) return -1;  // Changed from index < 0 to index < 1
+  if (l == NULL || l->head == NULL || index < 1) return -1;  
   
-  if (index == 1) {  // Changed from index == 0 to index == 1
+  if (index == 1) {  
     return list_remove_from_front(l);
   }
   
   node_t *current = l->head;
   
   // Navigate to the position before the one we want to remove
-  for (int i = 1; i < index - 1 && current != NULL; i++) {  // Changed from i = 0 to i = 1
+  for (int i = 1; i < index - 1 && current != NULL; i++) {  
     current = current->next;
   }
   
